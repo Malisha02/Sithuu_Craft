@@ -1,0 +1,220 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Navbar container */
+  .navbar {
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+    color: white;
+    padding: 12px 16px;
+  }
+
+  /* Back arrow */
+  .back-arrow {
+    font-size: 30px;
+    margin-right: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 7px;
+  }
+
+  /* Title */
+  .navbar-title {
+    flex-grow: 1;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Menu icon (three dots) */
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+.contact-section {
+    padding: 40px;
+    text-align: center;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.contact-form, .contact-details {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width: 300px;
+}
+
+.contact-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background: #ff6f61;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #e65c50;
+}
+
+.contact-details h3 {
+    margin-bottom: 10px;
+}
+
+/*footer*/
+
+.footer {
+    background-color: #222;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    padding-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1 1 100px;
+    min-width: 200px;
+}
+
+.footer-column h3, .footer-column h4 {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.footer-column p {
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.3s;
+}
+
+
+.social-icons a {
+    margin-right: 10px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.social-icons img {
+    filter: invert(100%);
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons img:hover {
+    opacity: 0.7;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center; /* or start/end */
+  margin: -20px 0;
+}
+
+.payment-icons a img {
+  width: 50px; /* adjust size */
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.payment-icons a img:hover {
+  transform: scale(1.1);
+}
+.payment-icons a img {
+  width: 50px; /* adjust size */
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.payment-icons a img:hover {
+  transform: scale(1.1);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #444;
+    font-size: 0.85em;
+    color: #bbb;
+    margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        max-width: 100%;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
