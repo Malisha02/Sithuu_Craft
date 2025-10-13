@@ -6,7 +6,15 @@
   /* duration of one full loop */
   --pause-scale: 1.06;
   --perspective: 1000px;
+  
 }
+/* 📱 Slower speed for mobile devices */
+@media (max-width: 768px) {
+  :root {
+    --speed: 60s; /* increase value = slower speed */
+  }
+}
+
 
 * {
   box-sizing: border-box;
@@ -584,5 +592,6 @@ footer .socials a:hover {
     justify-content: center;
   }
 }
+
 
 
