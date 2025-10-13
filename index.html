@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sithuu_Craft</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon2.png" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <nav>
+      <a href="#" class="logo">Sithuu_Craft</a>
+
+      <button class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="home.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search products..." />
+        <button id="searchButton"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div class="icons">
+        <a href="#"><i class="fas fa-user"></i></a>
+        <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+      </div>
+    </nav>
+
+    <!-- ✅ WELCOME MESSAGE -->
+    <div class="welcome">
+      <h1>Welcome to Sithuu_Craft</h1>
+      <p>Handmade Clothes, Teddies, Flowers & Mandalas made with love 💖</p>
+    </div>
+
+    <div class="wrap">
+      <div class="slider-viewport" aria-label="3D image slider" role="region">
+        <div class="slider-track" id="carousel">
+          <!-- SLIDES: replace the image src with your own images (recommended size: 1600×1000 or similar). -->
+          <!-- IMPORTANT: include the entire set twice consecutively (copy the block once) so the CSS animation loops smoothly. -->
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 1">
+              <span class="slide-inner">
+                <img
+                  src="image/711sEZ6JfHL._UF894,1000_QL80_.jpg"
+                  alt="Landscape 1"
+                />
+              </span>
+            </a>
+          </figure>
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 2">
+              <span class="slide-inner">
+                <img
+                  src="image/2-26_38120185-cb89-4d6c-84d3-476503f87ea2.jpeg"
+                  alt="Landscape 2"
+                />
+              </span>
+            </a>
+          </figure>
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 3">
+              <span class="slide-inner">
+                <img
+                  src="image/il_1080xN.5491986635_i19a.jpg"
+                  alt="Landscape 3"
+                />
+              </span>
+            </a>
+          </figure>
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 4">
+              <span class="slide-inner">
+                <img src="image/XXL_p0185370579.jpg" alt="Landscape 4" />
+              </span>
+            </a>
+          </figure>
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 5">
+              <span class="slide-inner">
+                <img src="image/IMG-2184.jpg" alt="Landscape 5" />
+              </span>
+            </a>
+          </figure>
+
+          <!-- Duplicate the slides above to make the animation seamless (copy-paste) -->
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 1 duplicate">
+              <span class="slide-inner">
+                <img
+                  src="image/711sEZ6JfHL._UF894,1000_QL80_.jpg"
+                  alt="Landscape 1 duplicate"
+                />
+              </span>
+            </a>
+          </figure>
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 2 duplicate">
+              <span class="slide-inner">
+                <img
+                  src="image/2-26_38120185-cb89-4d6c-84d3-476503f87ea2.jpeg"
+                  alt="Landscape 2 duplicate"
+                />
+              </span>
+            </a>
+          </figure>
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 3 duplicate">
+              <span class="slide-inner">
+                <img
+                  src="image/il_1080xN.5491986635_i19a.jpg"
+                  alt="image 3 duplicate"
+                />
+              </span>
+            </a>
+          </figure>
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 4 duplicate">
+              <span class="slide-inner">
+                <img src="image/XXL_p0185370579.jpg" alt="image 4 duplicate" />
+              </span>
+            </a>
+          </figure>
+
+          <figure class="slide" tabindex="0">
+            <a href="#" aria-label="Open image 5 duplicate">
+              <span class="slide-inner">
+                <img src="image/IMG-2184.jpg" alt="image 5 duplicate" />
+              </span>
+            </a>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <section class="products" id="products">
+      <h2 class="section-title">Our Products</h2>
+
+      <div class="category-filter">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="flower-boquets">
+          Flower Boquets
+        </button>
+        <button class="filter-btn" data-category="dream-catchers">
+          Dream Catchers
+        </button>
+        <button class="filter-btn" data-category="kids">Kids</button>
+        <button class="filter-btn" data-category="ladies">Ladies</button>
+        <button class="filter-btn" data-category="flowers">Flowers</button>
+        <button class="filter-btn" data-category="teddy">Teddies</button>
+        <button class="filter-btn" data-category="bag">Chorchet Bags</button>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card" data-category="flower-boquets">
+          <img
+            src="image/81LQgsVRVuL._UF894,1000_QL80_.jpg"
+            alt="flower-boquets"
+          />
+          <h3>Flower Boquet</h3>
+          <button class="buy-btn" onclick="goToCatalog('flower-boquet2')">
+            Buy Now
+          </button>
+        </div>
+
+        <div class="product-card" data-category="flower-boquets">
+          <img src="image/IMG-2184.jpg" alt="flower-boquets" />
+          <h3>Flower Boquet</h3>
+          <button class="buy-btn" onclick="goToCatalog('flower-boquet3')">
+            Buy Now
+          </button>
+        </div>
+
+        <div class="product-card" data-category="flower-boquets">
+          <img
+            src="image/2-26_38120185-cb89-4d6c-84d3-476503f87ea2.jpeg"
+            alt="flower-boquets"
+          />
+          <h3>Flower Boquet</h3>
+          <button class="buy-btn" onclick="goToCatalog('flower-boquet1')">
+            Buy Now
+          </button>
+        </div>
+
+        <div class="product-card" data-category="teddy">
+          <img
+            src="image/Sleeping-Teddy-Bear-Crochet-Pattern-Free.jpg"
+            alt="teddy"
+          />
+          <h3>Cute Teddy</h3>
+          <button class="buy-btn" onclick="goToCatalog('teddy2')">
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <h2 class="section-title">New Arrivals</h2>
+
+      <div class="product-grid">
+        <div class="product-card" data-category="bags">
+          <img src="image/S703423b1dfae4688a1731821a0b51416O.jpg" alt="bag" />
+          <h3>Chorchet Bag</h3>
+          <button class="buy-btn" onclick="goToCatalog('bag1')">Buy Now</button>
+        </div>
+
+        <div class="product-card" data-category="teddy">
+          <img src="image/il_570xN.6035148561_sdhd.jpg" alt="teddy" />
+          <h3>Cute Teddies</h3>
+          <button class="buy-btn" onclick="goToCatalog('teddy3')">
+            Buy Now
+          </button>
+        </div>
+
+        <div class="product-card" data-category="ladies">
+          <img src="image/il_fullxfull.6117598863_ss48.jpg" alt="t shirt" />
+          <h3>Chorchet T Shirt</h3>
+          <button class="buy-btn" onclick="goToCatalog('chorchet1')">
+            Buy Now
+          </button>
+        </div>
+
+        <div class="product-card" data-category="teddy">
+          <img src="image/ET-8-3_1024x1024.jpg" alt="teddy" />
+          <h3>Cute Couple Teddy</h3>
+          <button class="buy-btn" onclick="goToCatalog('teddy4')">
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="noResultsMessage"
+      style="
+        display: none;
+        text-align: center;
+        margin: 30px 0;
+        font-size: 1.2rem;
+        color: #ff4c4c;
+        font-weight: bold;
+      "
+    >
+      No products found for "<span id="searchQueryText"></span>" 😢
+    </div>
+
+    <section class="testimonials">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p>"Absolutely love the handmade dresses! Quality is amazing."</p>
+          <h4>- Malisha.</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Fast delivery and the hoodie fits perfectly."</p>
+          <h4>- Sithmi.</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Beautiful packaging and eco-friendly fabrics!"</p>
+          <h4>- Bhagya.</h4>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Sithuu_Craft</h3>
+          <p>
+            Handcrafted crochet items made with love and care. Bringing warmth
+            and style to every stitch.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <div class="socials">
+            <a
+              href="https://www.instagram.com/yourprofile"
+              target="_blank"
+              class="instagram"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/yourpage"
+              target="_blank"
+              class="facebook"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/yourwhatsapplink"
+              target="_blank"
+              class="whatsapp"
+              aria-label="WhatsApp"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.tiktok.com/@yourprofile"
+              class="tiktok"
+              target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-icons">
+        <a href="#"
+          ><img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
+            alt="Visa"
+        /></a>
+        <a href="#"
+          ><img
+            src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
+            alt="Mastercard"
+        /></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Sithuu_Craft. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+
+      const carousel = document.getElementById("carousel");
+      const figures = carousel.querySelectorAll("figure");
+      const n = figures.length;
+      const theta = 360 / n;
+      let currAngle = 0;
+    </script>
+
+    <script>
+      const searchInput = document.querySelector(".search-bar input");
+      const productCards = document.querySelectorAll(".product-card");
+
+      searchInput.addEventListener("keyup", function () {
+        const query = this.value.toLowerCase().trim();
+        productCards.forEach((card) => {
+          const title = card.querySelector("h3").textContent.toLowerCase();
+          if (title.includes(query)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const products = document.querySelectorAll(".product-card");
+        const searchInput = document.querySelector(".search-bar input");
+
+        if (!filterButtons.length || !products.length) return; // prevent JS errors
+
+        function filterProducts() {
+          const activeBtn = document.querySelector(".filter-btn.active");
+          const selectedCategory = activeBtn
+            ? activeBtn.dataset.category
+            : "all";
+          const searchQuery = searchInput
+            ? searchInput.value.toLowerCase().trim()
+            : "";
+
+          products.forEach((product) => {
+            const matchesCategory =
+              selectedCategory === "all" ||
+              product.dataset.category === selectedCategory;
+            const matchesSearch = product
+              .querySelector("h3")
+              .textContent.toLowerCase()
+              .includes(searchQuery);
+
+            product.style.display =
+              matchesCategory && matchesSearch ? "block" : "none";
+          });
+        }
+
+        filterButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            filterProducts();
+          });
+        });
+
+        if (searchInput) {
+          searchInput.addEventListener("keyup", filterProducts);
+        }
+
+        // Run initially
+        filterProducts();
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const searchInput = document.getElementById("searchInput");
+        const searchButton = document.getElementById("searchButton");
+        const productCards = document.querySelectorAll(".product-card");
+        const noResults = document.getElementById("noResultsMessage");
+        const searchText = document.getElementById("searchQueryText");
+
+        function searchProducts() {
+          const query = searchInput.value.toLowerCase().trim();
+          let foundCount = 0;
+
+          productCards.forEach((card) => {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            if (title.includes(query) || query === "") {
+              card.style.display = "block";
+              foundCount++;
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          if (foundCount === 0 && query !== "") {
+            searchText.textContent = query;
+            noResults.style.display = "block";
+          } else {
+            noResults.style.display = "none";
+          }
+
+          if (query !== "") {
+            window.scrollTo({
+              top: document.querySelector(".products").offsetTop - 100,
+              behavior: "smooth",
+            });
+          }
+        }
+
+        searchButton.addEventListener("click", searchProducts);
+
+        searchInput.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            searchProducts();
+          }
+        });
+      });
+    </script>
+
+    <script>
+      function goToCatalog(productId) {
+        window.location.href = `catalog.html?product=${encodeURIComponent(
+          productId
+        )}`;
+      }
+    </script>
+
+    <!-- NOTES: No JavaScript required for the basic animation. If you want mousemove parallax tilt or touch drag controls, add a tiny JS snippet to set CSS variables on mousemove. -->
+  </body>
+</html>

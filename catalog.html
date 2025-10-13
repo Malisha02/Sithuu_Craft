@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="image/favicon2.png" />
+    <title>Sithuu_Craft — Catalog</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --accent: #4f46e5;
+        --muted: #6b7280;
+        --radius: 12px;
+        --max-width: 1200px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        color: #111;
+        background: #fff;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* NAVBAR */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid #eee;
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .logo {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+      .icon-btn {
+        position: relative;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        color: #333;
+      }
+      .cart-badge {
+        position: absolute;
+        right: -8px;
+        top: -6px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.75rem;
+        padding: 2px 6px;
+        border-radius: 999px;
+      }
+
+      /* SEARCH + FILTER */
+      .search-bar {
+        max-width: var(--max-width);
+        margin: 1rem auto;
+        padding: 0 1rem;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      .search-bar input {
+        flex: 1;
+        min-width: 200px;
+        max-width: 400px;
+        padding: 0.6rem 0.8rem;
+        border-radius: 999px;
+        border: 1px solid #ddd;
+        font-size: 0.95rem;
+      }
+      select {
+        appearance: none;
+        background-color: #fff;
+        color: #111;
+        border: 1.5px solid #ddd;
+        border-radius: 12px;
+        padding: 0.65rem 2.8rem 0.65rem 1rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        background-image: url("data:image/svg+xml;utf8,<svg fill='%236b7280' height='22' viewBox='0 0 24 24' width='22' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 16px;
+      }
+
+      select:hover {
+        border-color: var(--accent);
+        box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15);
+      }
+
+      select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+      }
+
+      option {
+        background: #fff;
+        color: #111;
+        font-weight: 500;
+      }
+
+      /* GRID */
+      /* PRODUCT GRID – Responsive (2 per row on mobile) */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        max-width: var(--max-width);
+        margin: 1rem auto 3rem;
+        padding: 0 1rem;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .card img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+      }
+
+      .info {
+        padding: 0.9rem 1rem 1rem;
+      }
+
+      .info h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: #111;
+      }
+
+      .price {
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .category {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-top: 0.3rem;
+        display: none;
+      }
+
+      /* 📱 Mobile view – show exactly 2 cards per row */
+      @media (max-width: 768px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+        .card img {
+          height: 180px;
+        }
+      }
+
+      /* Smaller phones (optional fallback for tiny screens) */
+      @media (max-width: 400px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.8rem;
+        }
+        .card img {
+          height: 160px;
+        }
+      }
+
+      /* FOOTER */
+      footer {
+        background: #111827;
+        color: #fff;
+        text-align: center;
+        padding: 1.6rem 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="index.html">Sithuu_Craft</a>
+      <a href="cart.html" class="icon-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCount" class="cart-badge" style="display: none">0</span>
+      </a>
+    </nav>
+
+    <!-- SEARCH + FILTER -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="flower-boquets">Flowers</option>
+        <option value="teddy">Teddies</option>
+        <option value="bag">Chorchet bags</option>
+      </select>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <section class="grid" id="productGrid">
+      <!-- JS will populate -->
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Sithuu_Craft</h3>
+          <p>
+            Handcrafted crochet items made with love and care. Bringing warmth
+            and style to every stitch.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <div class="socials">
+            <a
+              href="https://www.instagram.com/yourprofile"
+              target="_blank"
+              class="instagram"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/yourpage"
+              target="_blank"
+              class="facebook"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://wa.me/yourwhatsapplink"
+              target="_blank"
+              class="whatsapp"
+              aria-label="WhatsApp"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://www.tiktok.com/@yourprofile"
+              class="tiktok"
+              target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-icons">
+        <a href="#"
+          ><img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
+            alt="Visa"
+        /></a>
+        <a href="#"
+          ><img
+            src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
+            alt="Mastercard"
+        /></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Sithuu_Craft. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const CART_KEY = "sithuu_cart";
+      const cartCountEl = document.getElementById("cartCount");
+      function readCart() {
+        try {
+          return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+        } catch (e) {
+          return [];
+        }
+      }
+      function updateCartBadge() {
+        const c = readCart();
+        const total = c.reduce((s, i) => s + (i.qty || 0), 0);
+        cartCountEl.style.display = total > 0 ? "inline-block" : "none";
+        if (total > 0) cartCountEl.textContent = total;
+      }
+
+      // Product data
+      const products = [
+        {
+          id: "flower-boquet1",
+          title: "Red Boquet",
+          price: 1500.0,
+          category: "flower-boquets",
+          img: "image/2-26_38120185-cb89-4d6c-84d3-476503f87ea2.jpeg",
+        },
+        {
+          id: "flower-boquet2",
+          title: "Floral Boquet",
+          price: 1200.0,
+          category: "flower-boquets",
+          img: "image/81LQgsVRVuL._UF894,1000_QL80_.jpg",
+        },
+        {
+          id: "flower-boquet3",
+          title: "Flower Boquet",
+          price: 1000.0,
+          category: "flower-boquets",
+          img: "image/IMG-2184.jpg",
+        },
+        {
+          id: "teddy1",
+          title: "Couple Teddy",
+          price: 1800.0,
+          category: "teddy",
+          img: "image/il_1080xN.5491986635_i19a.jpg",
+        },
+        {
+          id: "teddy2",
+          title: "Sleeping Teddy",
+          price: 1600.0,
+          category: "teddy",
+          img: "image/Sleeping-Teddy-Bear-Crochet-Pattern-Free.jpg",
+        },
+        {
+          id: "chorchet1",
+          title: "Chorchet Dress",
+          price: 4500.0,
+          category: "ladies",
+          img: "image/il_fullxfull.6117598863_ss48.jpg",
+        },
+        {
+          id: "bag1",
+          title: "Chorchet Cute Bag",
+          price: 1000.0,
+          category: "bag",
+          img: "image/S703423b1dfae4688a1731821a0b51416O.jpg",
+        },
+        {
+          id: "flowerpot1",
+          title: "White Sunflowe Pot",
+          price: 1200.0,
+          category: "flower-pots",
+          img: "image/711sEZ6JfHL._UF894,1000_QL80_.jpg",
+        },
+        {
+          id: "teddy3",
+          title: "Cute Teddies",
+          price: 1200.0,
+          category: "teddy",
+          img: "image/il_570xN.6035148561_sdhd.jpg",
+        },
+        {
+          id: "teddy4",
+          title: "Cute Couple Teddy",
+          price: 1200.0,
+          category: "teddy",
+          img: "image/ET-8-3_1024x1024.jpg",
+        },
+      ];
+
+      const grid = document.getElementById("productGrid");
+      const searchInput = document.getElementById("searchInput");
+      const categoryFilter = document.getElementById("categoryFilter");
+
+      function renderGrid() {
+        const search = searchInput.value.toLowerCase();
+        const cat = categoryFilter.value;
+        const filtered = products.filter(
+          (p) =>
+            (cat === "all" || p.category === cat) &&
+            (p.title.toLowerCase().includes(search) ||
+              p.category.toLowerCase().includes(search))
+        );
+
+        grid.innerHTML = "";
+        filtered.forEach((p) => {
+          const card = document.createElement("a");
+          card.className = "card";
+          card.href = `product.html?id=${encodeURIComponent(p.id)}`;
+          card.innerHTML = `
+      <img src="${p.img}" alt="${p.title}">
+      <div class="info">
+      <h3>${p.title}</h3>
+      <div class="price">Rs. ${Math.round(p.price)}</div>
+      <div class="category">${p.category}</div>
+      </div>`;
+          grid.appendChild(card);
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML =
+            '<p style="grid-column:1/-1;text-align:center;color:var(--muted)">No products found</p>';
+        }
+      }
+
+      searchInput.addEventListener("input", renderGrid);
+      categoryFilter.addEventListener("change", renderGrid);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        updateCartBadge();
+
+        // Check if user came from "Buy Now"
+        const params = new URLSearchParams(window.location.search);
+        const targetId = params.get("product");
+
+        if (targetId) {
+          // Pre-fill the search bar with product name
+          const product = products.find((p) => p.id === targetId);
+          if (product) {
+            searchInput.value = product.title;
+          }
+        }
+
+        renderGrid();
+
+        // If a specific product was selected, scroll to it smoothly
+        if (targetId) {
+          setTimeout(() => {
+            const targetCard = document.querySelector(
+              `[href="product.html?id=${targetId}"]`
+            );
+            if (targetCard) {
+              targetCard.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+              targetCard.style.outline = "3px solid var(--accent)";
+              targetCard.style.borderRadius = "12px";
+            }
+          }, 400);
+        }
+      });
+    </script>
+  </body>
+</html>

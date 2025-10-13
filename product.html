@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="image/favicon2.png" />
+    <title>Sithuu_Craft — Product</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --accent: #4f46e5;
+        --muted: #6b7280;
+        --card: #f9fafb;
+        --radius: 12px;
+        --max-width: 1100px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        color: #111;
+        background: #fff;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid #eee;
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .logo {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+      .icon-btn {
+        position: relative;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        color: #333;
+      }
+      .cart-badge {
+        position: absolute;
+        right: -8px;
+        top: -6px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.75rem;
+        padding: 2px 6px;
+        border-radius: 999px;
+      }
+      .page {
+        max-width: var(--max-width);
+        margin: 1.25rem auto;
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 2rem;
+        align-items: start;
+      }
+      @media (max-width: 720px) {
+        .page {
+          grid-template-columns: 1fr;
+        }
+      }
+      .gallery {
+        background: #fff;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(2, 6, 23, 0.06);
+      }
+      .gallery img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        display: block;
+      }
+      .info {
+        padding: 1rem;
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: 0 8px 30px rgba(2, 6, 23, 0.04);
+      }
+      h1 {
+        font-size: 1.25rem;
+        margin: 0.2rem 0;
+      }
+      .price {
+        font-weight: 700;
+        color: var(--accent);
+        font-size: 1.1rem;
+      }
+      .desc {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.45;
+        margin: 0.75rem 0;
+      }
+      .option-group {
+        margin: 0.6rem 0;
+      }
+      .option-label {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 0.35rem;
+      }
+      .options {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .option {
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        background: #f3f4f6;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .option.active {
+        background: var(--accent);
+        color: #fff;
+      }
+      .color-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: inline-block;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        vertical-align: middle;
+        margin-right: 0.45rem;
+      }
+      .actions {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+        margin-top: 0.9rem;
+      }
+      .btn {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn-ghost {
+        background: #fff;
+        border: 1px solid #e6e6f2;
+        color: var(--accent);
+      }
+      .related {
+        margin-top: 1.2rem;
+      }
+      .related-grid {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .related-card {
+        width: 120px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 6px 18px rgba(2, 6, 23, 0.05);
+      }
+      .related-card img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+      }
+      footer {
+        background: #111827;
+        color: #fff;
+        padding: 1.6rem 1rem;
+        margin-top: 2rem;
+        text-align: center;
+      }
+      .socials a {
+        color: #fff;
+        margin: 0 0.4rem;
+        font-size: 1.4rem;
+        transition: color 0.3s, transform 0.2s;
+      }
+      .socials a:hover {
+        color: var(--accent);
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="index.html">Sithuu_Craft</a>
+      <a href="cart.html" class="icon-btn"
+        ><i class="fas fa-shopping-cart"></i
+        ><span id="cartCount" class="cart-badge" style="display: none"
+          >0</span
+        ></a
+      >
+    </nav>
+
+    <main class="page">
+      <div>
+        <div class="gallery">
+          <img id="mainImage" src="" alt="Product image" />
+        </div>
+        <div class="related">
+          <h3>You might also like</h3>
+          <div class="related-grid" id="relatedGrid"></div>
+        </div>
+      </div>
+      <aside class="info">
+        <h1 id="productTitle"></h1>
+        <div class="price" id="productPrice"></div>
+        <p class="desc" id="productDesc"></p>
+
+        <div class="option-group" id="sizeGroup">
+          <div class="option-label">Size</div>
+          <div class="options" id="sizeOptions"></div>
+        </div>
+
+        <div class="option-group" id="colorGroup">
+          <div class="option-label">Color</div>
+          <div class="options" id="colorOptions"></div>
+        </div>
+
+        <div style="margin-top: 0.6rem">
+          <label for="qty">Quantity</label>
+          <input
+            id="qty"
+            type="number"
+            value="1"
+            min="1"
+            style="
+              width: 72px;
+              padding: 0.45rem;
+              border-radius: 8px;
+              border: 1px solid #eee;
+              margin-left: 0.5rem;
+            "
+          />
+        </div>
+
+        <div class="actions">
+          <button id="addBtn" class="btn btn-primary">Add to Cart</button>
+          <button id="buyBtn" class="btn btn-ghost">Buy on WhatsApp</button>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <p>© 2025 Sithuu_Craft. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // ✅ Product list with selective size/color options
+      const products = [
+        {
+          id: "flower-boquet1",
+          title: "Big Boquet",
+          price: 1500.0,
+          desc: "A stunning handmade crochet flower bouquet, perfect for gifting.",
+          img: "image/2-26_38120185-cb89-4d6c-84d3-476503f87ea2.jpeg",
+        },
+        {
+          id: "flower-boquet2",
+          title: "Floral Boquet",
+          price: 1200.0,
+          desc: "A vibrant floral bouquet crafted with intricate crochet detailing.",
+          img: "image/81LQgsVRVuL._UF894,1000_QL80_.jpg",
+        },
+        {
+          id: "flower-boquet3",
+          title: "Rose Flower",
+          price: 1000.0,
+          desc: "Soft handmade crochet roses — elegant and timeless.",
+          img: "image/IMG-2184.jpg",
+        },
+        {
+          id: "teddy1",
+          title: "Couple Teddy",
+          price: 1800.0,
+          desc: "Adorable crochet teddy couple, handcrafted with care.",
+          img: "image/il_1080xN.5491986635_i19a.jpg",
+        },
+        {
+          id: "teddy2",
+          title: "Sleeping Teddy",
+          price: 1600.0,
+          desc: "Cute sleeping teddy bear crochet, soft and cuddly handmade toy.",
+          img: "image/Sleeping-Teddy-Bear-Crochet-Pattern-Free.jpg",
+        },
+        {
+          id: "teddy3",
+          title: "Cute Teddies",
+          price: 1200.0,
+          desc: "Adorable handmade crochet teddies, perfect for gifts or decor.",
+          img: "image/il_570xN.6035148561_sdhd.jpg",
+        },
+        {
+          id: "teddy4",
+          title: "Cute Couple Teddy",
+          price: 1200.0,
+          desc: "A lovely crochet couple teddy set — ideal for couples and special occasions.",
+          img: "image/ET-8-3_1024x1024.jpg",
+        },
+        {
+          id: "chorchet1",
+          title: "Chorchet Dress",
+          price: 4500.0,
+          desc: "Elegant handmade crochet dress designed for comfort and beauty.",
+          img: "image/il_fullxfull.6117598863_ss48.jpg",
+          sizes: ["S", "M", "L"],
+          colors: [
+            { name: "Blue", code: "#cbdaf6" },
+            { name: "Black", code: "#222" },
+          ],
+        },
+        {
+          id: "bag1",
+          title: "Chorchet Cute Bag",
+          price: 1000.0,
+          desc: "Stylish and durable crochet bag, perfect for daily use or as a gift.",
+          img: "image/S703423b1dfae4688a1731821a0b51416O.jpg",
+        },
+        {
+          id: "flowerpot1",
+          title: "White Sunflower Pot",
+          price: 1200.0,
+          desc: "Handcrafted sunflower crochet pot that brings a bright, cheerful touch to your home.",
+          img: "image/711sEZ6JfHL._UF894,1000_QL80_.jpg",
+        },
+      ];
+
+      // Get product
+      const pid = new URLSearchParams(location.search).get("id");
+      const product = products.find((p) => p.id === pid) || products[0];
+
+      document.getElementById("productTitle").textContent = product.title;
+      document.getElementById("productPrice").textContent =
+        "Rs " + product.price.toFixed(2);
+      document.getElementById("productDesc").textContent = product.desc;
+      document.getElementById("mainImage").src = product.img;
+
+      // Related
+      const grid = document.getElementById("relatedGrid");
+      grid.innerHTML = products
+        .filter((p) => p.id !== product.id)
+        .slice(0, 3)
+        .map(
+          (p) =>
+            `<a class="related-card" href="product.html?id=${p.id}"><img src="${p.img}" alt="${p.title}"></a>`
+        )
+        .join("");
+
+      // ---- Dynamic Size/Color Display ----
+      const sizeGroup = document.getElementById("sizeGroup");
+      const colorGroup = document.getElementById("colorGroup");
+      const sizeOptions = document.getElementById("sizeOptions");
+      const colorOptions = document.getElementById("colorOptions");
+
+      // Sizes
+      if (product.sizes && product.sizes.length) {
+        sizeGroup.style.display = "block";
+        sizeOptions.innerHTML = product.sizes
+          .map(
+            (s, i) =>
+              `<button data-value="${s}" class="option ${
+                i === 0 ? "active" : ""
+              }">${s}</button>`
+          )
+          .join("");
+      } else sizeGroup.style.display = "none";
+
+      // Colors
+      if (product.colors && product.colors.length) {
+        colorGroup.style.display = "block";
+        colorOptions.innerHTML = product.colors
+          .map(
+            (c, i) =>
+              `<button data-value="${c.name.toLowerCase()}" class="option ${
+                i === 0 ? "active" : ""
+              }">
+           <span class="color-dot" style="background:${c.code}"></span>${c.name}
+         </button>`
+          )
+          .join("");
+      } else colorGroup.style.display = "none";
+
+      // Re-bind option clicks
+      function activateOption(container) {
+        container.querySelectorAll(".option").forEach((btn) => {
+          btn.onclick = () => {
+            container
+              .querySelectorAll(".option")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+          };
+        });
+      }
+      if (product.sizes) activateOption(sizeOptions);
+      if (product.colors) activateOption(colorOptions);
+
+      // ---- Cart + WhatsApp ----
+      const CART_KEY = "sithuu_cart";
+      const cartCountEl = document.getElementById("cartCount");
+      const addBtn = document.getElementById("addBtn");
+      const buyBtn = document.getElementById("buyBtn");
+      const qtyInput = document.getElementById("qty");
+
+      function readCart() {
+        try {
+          return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+        } catch (e) {
+          return [];
+        }
+      }
+      function writeCart(d) {
+        localStorage.setItem(CART_KEY, JSON.stringify(d));
+        updateCartBadge();
+      }
+      function updateCartBadge() {
+        const c = readCart();
+        const total = c.reduce((s, i) => s + (i.qty || 0), 0);
+        cartCountEl.style.display = total > 0 ? "inline-block" : "none";
+        if (total > 0) cartCountEl.textContent = total;
+      }
+      function getActiveOption(id) {
+        const el = document.getElementById(id);
+        const a = el?.querySelector(".option.active");
+        return a ? a.dataset.value : null;
+      }
+
+      addBtn.onclick = () => {
+        const size = getActiveOption("sizeOptions") || "default";
+        const color = getActiveOption("colorOptions") || "default";
+        const qty = Math.max(1, parseInt(qtyInput.value) || 1);
+        const cart = readCart();
+        const exist = cart.find(
+          (i) => i.id === product.id && i.size === size && i.color === color
+        );
+        if (exist) exist.qty += qty;
+        else cart.push({ ...product, size, color, qty });
+        writeCart(cart);
+        addBtn.textContent = "Added ✓";
+        setTimeout(() => (addBtn.textContent = "Add to Cart"), 900);
+      };
+
+      buyBtn.onclick = () => {
+        const size = getActiveOption("sizeOptions") || "default";
+        const color = getActiveOption("colorOptions") || "default";
+        const qty = Math.max(1, parseInt(qtyInput.value) || 1);
+        const msg = `Hello! 👋 I’d like to order this product:\n\n🛍 *${product.title}*\n💰 Price: Rs ${product.price}\n🎨 Color: ${color}\n📏 Size: ${size}\n🔢 Quantity: ${qty}\n\nProduct link: ${window.location.href}`;
+        const phone = "94700000000"; // <-- your WhatsApp number
+        window.open(
+          `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,
+          "_blank"
+        );
+      };
+
+      document.addEventListener("DOMContentLoaded", updateCartBadge);
+    </script>
+  </body>
+</html>
