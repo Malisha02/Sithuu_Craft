@@ -8,12 +8,38 @@
   --perspective: 1000px;
   
 }
-/* 📱 Slower speed for mobile devices */
+/* 🌍 Default speed for desktop */
+:root {
+  --scroll-speed: 40s;
+}
+
+/* 📱 Slower speed on mobile */
 @media (max-width: 768px) {
   :root {
-    --speed: 60s; /* increase value = slower speed */
+    --scroll-speed: 70s;
   }
 }
+
+/* Slider animation using variable */
+.slider-track {
+  display: flex;
+  gap: var(--slide-gap);
+  align-items: center;
+  will-change: transform;
+  transform-style: preserve-3d;
+  animation: scroll var(--scroll-speed) linear infinite !important;
+  width: max-content;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - var(--slide-gap) * 5));
+  }
+}
+
 
 
 * {
