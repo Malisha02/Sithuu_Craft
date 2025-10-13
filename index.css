@@ -2,7 +2,7 @@
   --slide-gap: 1.5rem;
   --slide-width: clamp(220px, 40vw, 420px);
   --slide-height: calc(var(--slide-width) * 0.65);
-  --speed: 18s;
+  --speed: 60s;
   /* duration of one full loop */
   --pause-scale: 1.06;
   --perspective: 1000px;
@@ -584,4 +584,5 @@ footer .socials a:hover {
     justify-content: center;
   }
 }
+
 
