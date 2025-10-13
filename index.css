@@ -111,8 +111,6 @@ nav {
   transform: scale(1.05);
 }
 
-
-
 /* ===== WELCOME ===== */
 .welcome {
   text-align: center;
@@ -126,11 +124,8 @@ nav {
   background: linear-gradient(45deg, #ff6b6b, #5f27cd);
   background-clip: text;
   -webkit-background-clip: text;
-  /* ✅ Safari & Chrome */
   color: transparent;
-  /* ✅ fallback color */
   -webkit-text-fill-color: transparent;
-  /* ✅ makes text visible with gradient */
 }
 
 .welcome p {
@@ -145,7 +140,6 @@ nav {
   justify-content: center;
   background: linear-gradient(180deg, #ffffff 0%, #fcfcfc 100%);
   padding: 1rem 1.25rem 0;
-  /* reduced bottom padding */
 }
 
 .slider-viewport {
@@ -163,6 +157,7 @@ nav {
   will-change: transform;
   transform-style: preserve-3d;
   animation: scroll var(--speed) linear infinite;
+  width: max-content;
 }
 
 .slide {
@@ -230,16 +225,16 @@ nav {
   transform: rotateY(8deg) translateZ(16px);
 }
 
+/* ✅ FIXED SCROLL ANIMATION — show all 10 slides smoothly */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
 
   100% {
-    transform: translateX(calc(-100% - var(--slide-gap) * 5));
+    transform: translateX(calc(-50% - var(--slide-gap) * 5));
   }
 }
-
 
 .caption {
   position: absolute;
@@ -279,9 +274,7 @@ nav {
 .products {
   background: #fff;
   padding: 1rem 1rem 3rem;
-  /* reduced top padding */
   margin-top: 0;
-  /* remove gap */
   text-align: center;
 }
 
@@ -479,7 +472,6 @@ nav {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-
 footer {
   background: #111827;
   color: #fff;
@@ -516,30 +508,16 @@ footer .socials a:hover {
   transform: scale(1.2);
 }
 
-
 .payment-icons {
   display: flex;
   gap: 10px;
   align-items: center;
   justify-content: center;
-  /* or start/end */
   margin: 20px 0;
 }
 
 .payment-icons a img {
   width: 50px;
-  /* adjust size */
-  height: auto;
-  transition: transform 0.2s ease;
-}
-
-.payment-icons a img:hover {
-  transform: scale(1.1);
-}
-
-.payment-icons a img {
-  width: 50px;
-  /* adjust size */
   height: auto;
   transition: transform 0.2s ease;
 }
