@@ -2,7 +2,7 @@
   --slide-gap: 1.5rem;
   --slide-width: clamp(220px, 40vw, 420px);
   --slide-height: calc(var(--slide-width) * 0.65);
-  --speed: 60s;
+  --speed: 40s;
   /* duration of one full loop */
   --pause-scale: 1.06;
   --perspective: 1000px;
@@ -16,7 +16,7 @@
 /* 📱 Slower speed on mobile */
 @media (max-width: 768px) {
   :root {
-    --scroll-speed: 50s;
+    --scroll-speed: 40s;
   }
 }
 
@@ -618,6 +618,7 @@ footer .socials a:hover {
     justify-content: center;
   }
 }
+
 
 
 
