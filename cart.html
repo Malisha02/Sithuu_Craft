@@ -593,8 +593,8 @@
         )}\n\n`;
         message += `📦 Please confirm my order.`;
 
-        
-        const url = `https://wa.me/qr/4WYQ5DT4ZXYGM1?text=${encodeURIComponent(
+        const phone = "94712345678";
+        const url = `https://wa.me/qr/4WYQ5DT4ZXYGM1${phone}?text=${encodeURIComponent(
           message
         )}`;
         window.open(url, "_blank");
@@ -615,4 +615,5 @@
     </script>
   </body>
 </html>
+
 
